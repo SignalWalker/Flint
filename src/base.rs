@@ -86,14 +86,11 @@ impl VkData {
                         .filter_map(|(index, ref info)| {
                             let supports_graphic_and_surface =
                                 info.queue_flags.contains(vk::QueueFlags::GRAPHICS)
-                                    && match surface.loader.get_physical_device_surface_support(
+                                    && surface.loader.get_physical_device_surface_support(
                                         *pdevice,
                                         index as u32,
                                         surface.surface,
-                                    ) {
-                                        Ok(b) => b,
-                                        Err(_) => false,
-                                    };
+                                    );
                             if supports_graphic_and_surface {
                                 Some((*pdevice, index))
                             } else {
