@@ -1,5 +1,6 @@
 pub extern crate ash;
 pub extern crate shaderc;
+pub extern crate winit;
 
 #[cfg(target_os = "macos")]
 use cocoa::appkit::{NSView, NSWindow};
